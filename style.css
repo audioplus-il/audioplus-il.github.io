@@ -123,3 +123,32 @@ html.a11y-font .lp * { font-weight: 400 !important; letter-spacing: 0 !important
 .wa-float { position: fixed; bottom: 84px; left: 16px; z-index: 50; width: 52px; height: 52px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.4); }
 .wa-float svg { width: 30px; height: 30px; max-width: 30px; max-height: 30px; display: block; flex: 0 0 30px; }
 .wa-float:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+
+/* Refined contact buttons */
+.lp-contact .lp-btns { gap: 12px 14px; }
+.lp-contact .lp-btns .lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  max-width: calc((100vw - 72px) / 2);
+  min-height: 54px;
+  margin-top: 28px;
+  padding: 14px 18px;
+  border: 1px solid rgba(201,169,110,.42);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(201,169,110,.045));
+  color: #e4d2ac;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 8px 20px rgba(0,0,0,.22);
+  letter-spacing: .035em;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.lp-contact .lp-btns .lp-btn:hover,
+.lp-contact .lp-btns .lp-btn:focus-visible {
+  color: #0b0b0c;
+  background: linear-gradient(135deg, #dfc58f, #c9a96e);
+  border-color: #dfc58f;
+  box-shadow: 0 10px 22px rgba(201,169,110,.2);
+  transform: translateY(-1px);
+}
