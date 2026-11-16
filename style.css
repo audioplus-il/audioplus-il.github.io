@@ -119,3 +119,7 @@ html.a11y-font body, html.a11y-font button { font-family: Arial, Helvetica, sans
 html.a11y-font .lp * { font-weight: 400 !important; letter-spacing: 0 !important; }
 .lp-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 14px; }
 .lp-btns .lp-btn { padding-left: 32px; padding-right: 32px; }
+
+.wa-float { position: fixed; bottom: 84px; left: 16px; z-index: 50; width: 52px; height: 52px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.4); }
+.wa-float svg { width: 30px; height: 30px; }
+.wa-float:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
