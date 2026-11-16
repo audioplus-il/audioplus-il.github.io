@@ -152,3 +152,15 @@ html.a11y-font .lp * { font-weight: 400 !important; letter-spacing: 0 !important
   box-shadow: 0 10px 22px rgba(201,169,110,.2);
   transform: translateY(-1px);
 }
+
+/* language switcher */
+.lp-hero { position: relative; }
+.lp-lang { position: absolute; top: 28px; inset-inline-end: 28px; z-index: 2; }
+.lp-lang a { color: #e9e4dc; text-decoration: none; font-size: .9375rem; letter-spacing: .14em; padding: 10px 4px; border-bottom: 1px solid #c9a96e; text-transform: uppercase; }
+.lp-lang a:hover, .lp-lang a:focus-visible { color: #c9a96e; }
+.lp-lang-static { position: static; text-align: end; padding: 18px 28px 0; }
+@media (min-width: 900px) { .lp-lang { top: 36px; inset-inline-end: 8vw; } .lp-lang-static { padding-inline: 8vw; } }
+
+/* LTR (English) adjustments */
+html[dir="ltr"] .lp { direction: ltr; }
+html[dir="ltr"] .a11y-btn, html[dir="ltr"] .a11y-panel { inset-inline-start: auto; inset-inline-end: 16px; }

@@ -1,5 +1,33 @@
 (function () {
   var root = document.documentElement, KEY = 'a11y-aspire';
+  var LANG = (root.lang || 'he').slice(0, 2);
+  var STR = {
+    he: {
+      menu: 'תפריט נגישות',
+      contrast: 'ניגודיות גבוהה',
+      mono: 'שחור לבן',
+      links: 'הדגשת קישורים',
+      font: 'גופן קריא',
+      inc: 'הגדלת גופן',
+      dec: 'הקטנת גופן',
+      reset: 'איפוס הגדרות',
+      close: 'סגירה',
+      stmt: 'הצהרת נגישות'
+    },
+    en: {
+      menu: 'Accessibility menu',
+      contrast: 'High contrast',
+      mono: 'Monochrome',
+      links: 'Highlight links',
+      font: 'Readable font',
+      inc: 'Increase text size',
+      dec: 'Decrease text size',
+      reset: 'Reset settings',
+      close: 'Close',
+      stmt: 'Accessibility statement'
+    }
+  };
+  var t = STR[LANG] || STR.he;
   var st = { size: 0, mono: false, contrast: false, links: false, font: false };
   try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
   function apply() {
@@ -16,21 +44,21 @@
   }
   var btn = document.createElement('button');
   btn.className = 'a11y-btn'; btn.type = 'button';
-  btn.setAttribute('aria-label', 'תפריט נגישות'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'a11y-panel');
+  btn.setAttribute('aria-label', t.menu); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'a11y-panel');
   btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8 6.5v2l-5 .8V22h-2v-6h-2v6H9V11.3l-5-.8v-2l8 1.2 8-1.2z"/></svg>';
   var p = document.createElement('div');
   p.id = 'a11y-panel'; p.className = 'a11y-panel'; p.hidden = true;
-  p.setAttribute('role', 'dialog'); p.setAttribute('aria-label', 'תפריט נגישות');
-  p.innerHTML = '<h2>תפריט נגישות</h2><div class="a11y-grid">' +
-    '<button type="button" data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>' +
-    '<button type="button" data-a11y="mono" aria-pressed="false">שחור לבן</button>' +
-    '<button type="button" data-a11y="links" aria-pressed="false">הדגשת קישורים</button>' +
-    '<button type="button" data-a11y="font" aria-pressed="false">גופן קריא</button>' +
-    '<button type="button" data-act="inc">הגדלת גופן</button>' +
-    '<button type="button" data-act="dec">הקטנת גופן</button>' +
-    '<button type="button" data-act="reset">איפוס הגדרות</button>' +
-    '<button type="button" data-act="close">סגירה</button></div>' +
-    '<a href="accessibility.html">הצהרת נגישות</a>';
+  p.setAttribute('role', 'dialog'); p.setAttribute('aria-label', t.menu);
+  p.innerHTML = '<h2>' + t.menu + '</h2><div class="a11y-grid">' +
+    '<button type="button" data-a11y="contrast" aria-pressed="false">' + t.contrast + '</button>' +
+    '<button type="button" data-a11y="mono" aria-pressed="false">' + t.mono + '</button>' +
+    '<button type="button" data-a11y="links" aria-pressed="false">' + t.links + '</button>' +
+    '<button type="button" data-a11y="font" aria-pressed="false">' + t.font + '</button>' +
+    '<button type="button" data-act="inc">' + t.inc + '</button>' +
+    '<button type="button" data-act="dec">' + t.dec + '</button>' +
+    '<button type="button" data-act="reset">' + t.reset + '</button>' +
+    '<button type="button" data-act="close">' + t.close + '</button></div>' +
+    '<a href="accessibility.html">' + t.stmt + '</a>';
   document.body.appendChild(p); document.body.appendChild(btn);
   function toggle(open) {
     p.hidden = !open; btn.setAttribute('aria-expanded', String(open));
