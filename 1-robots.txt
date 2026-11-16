@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://audioplus.co.il/sitemap.xml
