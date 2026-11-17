@@ -155,9 +155,12 @@ html.a11y-font .lp * { font-weight: 400 !important; letter-spacing: 0 !important
 
 /* language switcher */
 .lp-hero { position: relative; }
-.lp-lang { position: absolute; top: 28px; inset-inline-end: 28px; z-index: 2; }
-.lp-lang a { color: #e9e4dc; text-decoration: none; font-size: .9375rem; letter-spacing: .14em; padding: 10px 4px; border-bottom: 1px solid #c9a96e; text-transform: uppercase; }
-.lp-lang a:hover, .lp-lang a:focus-visible { color: #c9a96e; }
+.lp-lang { position: absolute; top: 28px; inset-inline-end: 28px; z-index: 2; display: flex; align-items: center; gap: 12px; }
+.lp-lang a, .lp-lang .lp-flag-cur { display: inline-flex; align-items: center; padding: 8px 2px; line-height: 0; }
+.lp-lang img { width: 30px; height: 22px; display: block; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 1px 4px rgba(0,0,0,.35); }
+.lp-lang a { opacity: .65; transition: opacity .2s ease; }
+.lp-lang a:hover, .lp-lang a:focus-visible { opacity: 1; }
+.lp-lang .lp-flag-cur { border-bottom: 2px solid #c9a96e; }
 .lp-lang-static { position: static; text-align: end; padding: 18px 28px 0; }
 @media (min-width: 900px) { .lp-lang { top: 36px; inset-inline-end: 8vw; } .lp-lang-static { padding-inline: 8vw; } }
 
