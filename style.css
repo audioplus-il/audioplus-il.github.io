@@ -159,8 +159,9 @@ html.a11y-font .lp * { font-weight: 400 !important; letter-spacing: 0 !important
 .lp-lang a:hover, .lp-lang a:focus-visible { opacity: 1 !important; }
 @media (min-width: 900px) { .lp-lang:not(.lp-lang-static) { top: 32px !important; inset-inline-end: 8vw !important; } .lp-lang-static { padding-inline: 8vw !important; } }
 
-/* footer social icons */
-.lp-foot a.lp-soc:hover, .lp-foot a.lp-soc:focus-visible { color: #c9a96e !important; }
+/* footer social icons - layout-critical styles are inline in the HTML so a stale cached stylesheet cannot break the layout */
+.lp-foot a.lp-soc { transition: background .2s ease, color .2s ease, transform .2s ease; }
+.lp-foot a.lp-soc:hover, .lp-foot a.lp-soc:focus-visible { background: #c9a96e !important; color: #0b0b0c !important; transform: translateY(-1px); }
 
 /* LTR (English) adjustments */
 html[dir="ltr"] .lp { direction: ltr; }
