@@ -21,9 +21,15 @@ body { background: #0b0b0c; }
 .lp-svc { display: flex; align-items: baseline; gap: 20px; padding: 26px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
 .lp-svc span { font-size: 0.8125rem; color: #c9a96e; letter-spacing: .2em; direction: ltr; }
 .lp-svc h3 { font-size: 1.75rem; color: #fff; font-weight: 200; }
-.lp-gallery { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 40px 0 8px; -webkit-overflow-scrolling: touch; }
+.lp-gallery { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 40px 24px 14px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(201,169,110,.45) transparent; }
 .lp-gallery img { height: 340px; width: auto; flex: none; scroll-snap-align: center; display: block; }
-.lp-gallery::-webkit-scrollbar { display: none; }
+.lp-gallery::-webkit-scrollbar { height: 4px; }
+.lp-gallery::-webkit-scrollbar-thumb { background: rgba(201,169,110,.45); border-radius: 2px; }
+.lp-gallery::-webkit-scrollbar-track { background: rgba(255,255,255,.06); }
+/* gallery arrows/dots - layout-critical styles are inline in the HTML so a stale cached stylesheet cannot break the layout */
+.lp-gal-btn { transition: background .2s ease, color .2s ease; }
+.lp-gal-btn:hover { background: #c9a96e !important; color: #0b0b0c !important; }
+.lp-gal-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 .lp-contact { padding: 72px 28px 64px; text-align: center; background: radial-gradient(ellipse at 50% 0%, #1b1712 0%, #0b0b0c 70%); }
 .lp-contact h2 { font-size: 2rem; color: #fff; font-weight: 200; }
 .lp-contact .tel { display: block; margin-top: 32px; font-size: 2.375rem; font-weight: 200; color: #fff; text-decoration: none; direction: ltr; letter-spacing: .06em; }
