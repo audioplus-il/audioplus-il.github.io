@@ -153,16 +153,14 @@ html.a11y-font .lp * { font-weight: 400 !important; letter-spacing: 0 !important
   transform: translateY(-1px);
 }
 
-/* language switcher */
+/* language switcher - layout-critical styles are inline in the HTML so a stale cached stylesheet cannot break the layout */
 .lp-hero { position: relative; }
-.lp-lang { position: absolute; top: 28px; inset-inline-end: 28px; z-index: 2; display: flex; align-items: center; gap: 12px; }
-.lp-lang a, .lp-lang .lp-flag-cur { display: inline-flex; align-items: center; padding: 8px 2px; line-height: 0; }
-.lp-lang img { width: 30px; height: 22px; display: block; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 1px 4px rgba(0,0,0,.35); }
-.lp-lang a { opacity: .65; transition: opacity .2s ease; }
-.lp-lang a:hover, .lp-lang a:focus-visible { opacity: 1; }
-.lp-lang .lp-flag-cur { border-bottom: 2px solid #c9a96e; }
-.lp-lang-static { position: static; text-align: end; padding: 18px 28px 0; }
-@media (min-width: 900px) { .lp-lang { top: 36px; inset-inline-end: 8vw; } .lp-lang-static { padding-inline: 8vw; } }
+.lp-lang a { transition: opacity .2s ease; }
+.lp-lang a:hover, .lp-lang a:focus-visible { opacity: 1 !important; }
+@media (min-width: 900px) { .lp-lang:not(.lp-lang-static) { top: 32px !important; inset-inline-end: 8vw !important; } .lp-lang-static { padding-inline: 8vw !important; } }
+
+/* footer social icons */
+.lp-foot a.lp-soc:hover, .lp-foot a.lp-soc:focus-visible { color: #c9a96e !important; }
 
 /* LTR (English) adjustments */
 html[dir="ltr"] .lp { direction: ltr; }
