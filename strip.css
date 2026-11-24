@@ -1,0 +1,62 @@
+/* === d4: existing site + fixed top strip + moving brand strip (extracted from d3) === */
+
+/* Fixed top strip */
+.d-nav { position: fixed; top: 0; inset-inline: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 20px; background: linear-gradient(180deg, rgba(11,11,12,.75), rgba(11,11,12,0)); transition: background .3s ease, border-color .3s ease; border-bottom: 1px solid transparent; }
+.d-nav.scrolled { background: rgba(11,11,12,.94); backdrop-filter: blur(8px); border-bottom-color: rgba(201,169,110,.25); }
+.d-nav-logo img { width: 120px; height: auto; display: block; }
+.d-nav-links { display: none; align-items: center; gap: 26px; }
+.d-nav-links a { color: #e9e4dc; text-decoration: none; font-size: 1rem; padding: 8px 2px; }
+.d-nav-links a:hover, .d-nav-links a:focus-visible { color: #c9a96e; }
+.d-nav-side { display: flex; align-items: center; gap: 14px; }
+.d-nav-cta { display: none; padding: 10px 20px; border: 1px solid #c9a96e; border-radius: 999px; color: #c9a96e; text-decoration: none; font-size: .9375rem; white-space: nowrap; transition: background .2s ease, color .2s ease; }
+.d-nav-cta:hover, .d-nav-cta:focus-visible { background: #c9a96e; color: #0b0b0c; }
+.d-nav-lang { display: flex; align-items: flex-start; gap: 8px; }
+.d-nav-lang .lp-flag-cur, .d-nav-lang a { display: inline-block; line-height: 0; padding: 3px 1px 5px; }
+.d-nav-lang .lp-flag-cur { border-bottom: 2px solid #c9a96e; }
+.d-nav-lang a { opacity: .6; }
+.d-nav-lang img { width: 24px; height: 18px; display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.4), 0 1px 3px rgba(0,0,0,.4); }
+.d-nav-burger { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: transparent; border: 1px solid rgba(201,169,110,.5); border-radius: 50%; color: #c9a96e; cursor: pointer; }
+.d-nav.open .d-nav-links { display: flex; position: absolute; top: 64px; inset-inline: 0; flex-direction: column; gap: 4px; background: rgba(11,11,12,.97); border-bottom: 1px solid rgba(201,169,110,.25); padding: 12px 24px 20px; }
+.d-nav.open .d-nav-links a { padding: 12px 4px; font-size: 1.125rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+@media (min-width: 900px) {
+  .d-nav { padding: 12px 8vw; }
+  .d-nav-logo img { width: 150px; }
+  .d-nav-links { display: flex; }
+  .d-nav-cta { display: inline-block; }
+  .d-nav-burger { display: none; }
+}
+
+/* Hero adjusts to the fixed strip: headline block stays at the bottom */
+.lp-hero { justify-content: flex-end; padding-top: 96px; }
+
+/* Anchor targets clear the fixed strip */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 84px; }
+
+/* Section head (from d3) */
+.d3-wrap { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 900px) { .d3-wrap { padding: 0 48px; } }
+.d-sec-head { text-align: center; padding: 0 28px; }
+.d-sec-head .lp-rule { margin: 0 auto 22px; }
+.d-sec-head h2 { font-size: 1.75rem; color: #fff; font-weight: 200; line-height: 1.35; }
+@media (min-width: 900px) { .d-sec-head h2 { font-size: 2.25rem; } }
+.d3-sechead { text-align: start; padding: 0; }
+.d3-sechead .lp-rule { margin: 0 0 20px; }
+.d3-sechead h2 { font-weight: 200; }
+
+/* Moving brand strip (from d3): continuous right-to-left loop, dark band, white logos */
+.d4-brands { padding: 64px 0 40px; }
+@media (min-width: 900px) { .d4-brands { padding-bottom: 64px; } }
+.d-marquee { display: flex; overflow: hidden; margin: 40px 0 0; padding: 30px 0; background: #0b0b0c; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); direction: ltr;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.d-marquee-track { display: flex; flex: 0 0 auto; align-items: center; gap: 64px; padding: 0 32px; margin: 0; list-style: none; animation: d-marq 70s linear infinite; }
+.d-marquee li { flex: 0 0 auto; display: flex; align-items: center; }
+.d-marquee img { width: auto; max-width: none; display: block; filter: brightness(0) invert(1); opacity: .8; flex: none; }
+@keyframes d-marq { from { transform: translate3d(0,0,0); } to { transform: translate3d(-100%,0,0); } }
+@media (max-width: 640px) {
+  .d-marquee-track { gap: 44px; padding: 0 22px; animation-duration: 55s; }
+  .d-marquee { margin-top: 28px; padding: 24px 0; -webkit-mask-image: none; mask-image: none; }
+}
+
+/* Accessibility high-contrast mode compatibility */
+html.a11y-contrast .d-nav, html.a11y-contrast .d4-brands { background: #000 !important; }
